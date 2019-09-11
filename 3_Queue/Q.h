@@ -7,6 +7,7 @@ template<class T>
 class Q{
 	private:
 		int size;
+		int count;
 		int rear;
 		int front;
 		T* q;
@@ -17,7 +18,11 @@ class Q{
 		bool isEmpty();
 		bool/*shit*/ addQ(T);
 		T delQ();
-		
-		
+		~Q();
+		void display();	
+		int getCount();
 		
 };
+
+template class Q<int>;
+template class Q<float>;
