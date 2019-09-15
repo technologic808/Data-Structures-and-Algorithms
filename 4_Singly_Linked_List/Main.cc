@@ -28,7 +28,8 @@ int main(){
 					int temp;
 			       		cout << "\nPlease enter a value:  ";
 					cin >> temp;
-					l.addAtBegin(temp);
+					if(l.addAtBegin(temp)) cout << "\n\nSuccess!";
+					else cout << "\n\nFailure!";
 					cout << endl;
 			       	}
 				break;
@@ -39,7 +40,7 @@ int main(){
 				break;
 			
 			case 3:{
-			       	
+			       		cout << endl << l.delFromBegin()<< endl;	
 			       	}
 				break;
 			

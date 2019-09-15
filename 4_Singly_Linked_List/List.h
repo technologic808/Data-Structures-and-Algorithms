@@ -28,7 +28,7 @@ class List : public Node<T>{
 		bool isEmpty();
 
 		// Adds at Beginning of list 
-		void addAtBegin(T);
+		bool addAtBegin(T);
 
 		// Adds at End of List
 		void addAtEnd(T);
@@ -40,7 +40,7 @@ class List : public Node<T>{
 		T delFromEnd();
 
 		// Display the linked list
-		void display();
+		bool display();
 
 		// Reverse the linked list
 		void reverse();

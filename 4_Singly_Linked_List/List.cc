@@ -12,20 +12,25 @@
 
 // Default Constructor
 template <class T>
-List<T>::List(){
+List<T>::List():count(0), headptr(nullptr), tailptr(nullptr){
 	
 }
 
 // Destructor
 template<class T>
 List<T>::~List(){
-	
+	Node<T>* temp = headptr;
+	while(temp -> getNext() != nullptr){
+		headptr = headptr -> getNext();
+		delete temp;
+		temp = headptr;
+	}
 }
 
 // Adds at Beginning of list 
 template <class T>
-void List<T>::addAtBegin(T ele){
-	
+bool List<T>::addAtBegin(T ele){
+	bool success = false;
 	// Create node
 	Node<T>* temp = new Node<T>;
 	
@@ -49,14 +54,17 @@ void List<T>::addAtBegin(T ele){
 
 		// Headpointer should point to new node
 		headptr = temp;
+		success = true;
 	}
 
 	else{
 		headptr = temp;
 		tailptr = temp;
 		temp->setNext(nullptr);
+		success = true;
 	}
 	count++;
+	return success;
 }
 
 // Check if there are no elements in the list
@@ -74,7 +82,24 @@ void List<T>::addAtEnd(T){
 // Deletes from the Beginning of the list
 template <class T>
 T List<T>::delFromBegin(){
-
+	// empty list condition
+	if(isEmpty()) throw runtime_error("No data in memory!");
+	
+	// single node condition
+	if (headptr == tailptr){
+		T ele = headptr->getData();
+		Node<T>* temp = headptr;
+		headptr = nullptr;
+		tailptr = nullptr;
+		delete temp;
+		return ele;
+	}
+	
+	T ele = headptr->getData();
+	Node<T>* temp = headptr;
+	headptr = headptr->getNext();
+	delete temp;
+	return ele;
 }
 
 // Deletes from the End of the list
@@ -85,20 +110,25 @@ T List<T>::delFromEnd(){
 
 // Display the linked list
 template <class T>
-void List<T>::display(){
+bool List<T>::display(){
 	// Create temp pointer to traverse the list
 	// set temp as headptr
 	// Traverse list till getNext of element is nullptr
 	// print value and fillers
 	//
-	// 
+	
+       	if(isEmpty()) {
+		cout << "\nNo data in memory!\n";
+		return false;
+	}	
 	Node<T>* temp = headptr;
 	cout << "\nSingly Linked List\n\n";
-	for (int i = 0; i < count; i++){
+	while(temp != nullptr){
 		cout << " " << temp->getData() << " ---> ";
-		temp = (temp->getNext());
+		temp = temp->getNext();
 	}
 	cout <<endl;
+	return true;
 }
 
 // Reverse the linked list
