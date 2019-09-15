@@ -105,6 +105,41 @@ T List<T>::delFromBegin(){
 // Deletes from the End of the list
 template <class T>
 T List<T>::delFromEnd(){
+	// if one node
+	// create temp node and set equal to tail
+	// Get value of tail and store in T ele
+	// headptr and tailptr = null
+	// delete temp
+	// return T ele
+	//
+	// if more than one node
+	// create temp node and set equal to tailptr
+	// get value of tail and store in T ele
+	// Traverse to the element whose next pointer is equal to tailptr
+	// set next as nullptr
+	// set tail pointer as traversal pointer
+	// delete temp pointer
+	
+	if (isEmpty()) throw runtime_error("No Data in Memory");
+	
+	Node<T>* temp = tailptr;
+	T ele = tailptr -> getData();
+
+	// Single node condition
+	if (headptr == tailptr){
+		headptr = tailptr = nullptr;
+		delete temp;
+		return ele;
+	}
+	
+	// Multi node condition
+	Node<T>* trav = headptr;
+	while (trav->getNext() != tailptr)
+		trav = trav->getNext();
+	tailptr = trav;
+	tailptr->setNext(nullptr);
+	delete temp;
+	return ele;
 
 }
 

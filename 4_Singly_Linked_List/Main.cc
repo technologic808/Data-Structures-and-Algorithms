@@ -45,7 +45,7 @@ int main(){
 				break;
 			
 			case 4:{
-			       	
+			       		cout << endl << l.delFromEnd() << endl;
 			       	}
 				break;
 			
