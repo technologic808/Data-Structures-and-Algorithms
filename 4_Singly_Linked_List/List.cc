@@ -20,7 +20,7 @@ List<T>::List():count(0), headptr(nullptr), tailptr(nullptr){
 template<class T>
 List<T>::~List(){
 	Node<T>* temp = headptr;
-	while(temp -> getNext() != nullptr){
+	while(temp != nullptr){
 		headptr = headptr -> getNext();
 		delete temp;
 		temp = headptr;
@@ -268,7 +268,12 @@ bool List<T>::reverse(){
 // Empties the linked List
 template <class T>
 void List<T>::empty(){
-	
+	Node<T>* temp = headptr;
+	while(temp != nullptr){
+		headptr = headptr -> getNext();
+		delete temp;
+		temp = headptr;
+	}
 }
 
 // Inserts element at the specified position

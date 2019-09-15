@@ -19,6 +19,7 @@ int main(){
 		cout << "\n6. Delete from a specific position\n";
 		cout << "\n7. Reverse the list\n";
 		cout << "\n8. Display the list\n";
+		cout << "\n9. Empty the list\n";
 		cout << "\n\n0. EXIT\n\n";
 
 		cin >> option;
@@ -75,6 +76,11 @@ int main(){
 					cout << endl;
 			       	}
 				break;
+			case 9:{
+			       		l.empty();
+			       	}
+				break;
+			
 			default:
 				cout << "\nPlease enter a valid input!\n";
 				break;
