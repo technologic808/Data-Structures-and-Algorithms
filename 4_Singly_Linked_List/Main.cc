@@ -65,7 +65,8 @@ int main(){
 				break;
 			
 			case 7:{
-			       	
+			       		if(l.reverse())	cout <<endl << "Success!" << endl;
+					else cout <<endl << "Failure!" << endl;
 			       	}
 				break;
 			

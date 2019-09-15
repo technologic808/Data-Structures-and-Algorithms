@@ -43,7 +43,7 @@ class List : public Node<T>{
 		bool display();
 
 		// Reverse the linked list
-		void reverse();
+		bool reverse();
 
 		// Empty the list
 		void empty();

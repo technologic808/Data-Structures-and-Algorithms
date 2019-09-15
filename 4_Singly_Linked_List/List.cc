@@ -211,8 +211,58 @@ bool List<T>::display(){
 
 // Reverse the linked list
 template <class T>
-void List<T>::reverse(){
+bool List<T>::reverse(){
+	// Reversal strategy 
+	// Detach and flip while traversing
+	//
+	// detach each node from old linked list starting from head 
+	// flip over to the new linked list while setting it as new head
+	// move to next node
+	//
+	// create temp pointers temp, nhead, ntail to keep track of the two linked lists
+
+
+	// create temp ptr equal to  headptr	
+	// create ntail and set as headptr
+	// create nhead pointer set it as headptr
+	// 
+	// 
+	// head = head->getNext();
+	// ntail->setNext(nullptr);
+	// temp = head;
+	//
+	//
+	// while(temp != nullptr)
+	// 	head = head->getNext();
+	//	temp->setNext(nhead);
+	//	nhead = temp;
+	//	temp = head;
+	//
+	// head = nhead
+	// tail = ntail
 	
+	if (isEmpty()) return true;
+
+	if (headptr == tailptr) return true;
+
+	Node<T>* temp = headptr;
+	Node<T>* nhead = headptr;
+	Node<T>* ntail = headptr;
+
+	headptr = headptr->getNext();
+	ntail->setNext(nullptr);
+	temp = headptr;
+
+	while (temp != nullptr){
+		headptr = headptr -> getNext();
+		temp ->setNext(nhead);
+		nhead = temp;
+		temp = headptr;	
+	}
+
+	headptr = nhead;
+	tailptr = ntail;
+	return true;
 }
 
 // Empties the linked List
