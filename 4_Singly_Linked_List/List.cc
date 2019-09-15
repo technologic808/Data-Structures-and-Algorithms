@@ -93,6 +93,7 @@ bool List<T>::addAtEnd(T ele){
 	// set tailptr = node
 	// 
 	
+	bool success = false;	
 	// Create node and set data and setnext as null
 	Node<T>* temp = new Node<T>;
 	temp->setData(ele);
@@ -103,13 +104,16 @@ bool List<T>::addAtEnd(T ele){
 	if(isEmpty()) {
 		headptr = temp;
 		tailptr = temp;
-		return true;
+		success =  true;
 	}
-
-	tailptr->setNext(temp);
-	tailptr = temp;
-
-	return true;
+	
+	else{
+		tailptr->setNext(temp);
+		tailptr = temp;
+		success = true;
+	}
+	count ++;
+	return success;
 
 
 }
@@ -127,6 +131,7 @@ T List<T>::delFromBegin(){
 		headptr = nullptr;
 		tailptr = nullptr;
 		delete temp;
+		count --;
 		return ele;
 	}
 	
@@ -134,6 +139,7 @@ T List<T>::delFromBegin(){
 	Node<T>* temp = headptr;
 	headptr = headptr->getNext();
 	delete temp;
+	count --;
 	return ele;
 }
 
@@ -164,6 +170,7 @@ T List<T>::delFromEnd(){
 	if (headptr == tailptr){
 		headptr = tailptr = nullptr;
 		delete temp;
+		count --;
 		return ele;
 	}
 	
@@ -174,6 +181,7 @@ T List<T>::delFromEnd(){
 	tailptr = trav;
 	tailptr->setNext(nullptr);
 	delete temp;
+	count --;
 	return ele;
 
 }
@@ -204,7 +212,7 @@ bool List<T>::display(){
 // Reverse the linked list
 template <class T>
 void List<T>::reverse(){
-
+	
 }
 
 // Empties the linked List
