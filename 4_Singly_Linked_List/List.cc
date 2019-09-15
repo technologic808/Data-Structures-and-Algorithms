@@ -75,7 +75,42 @@ bool List<T>::isEmpty(){
 
 // Adds at End of List
 template <class T>
-void List<T>::addAtEnd(T){
+bool List<T>::addAtEnd(T ele){
+	// empty condition
+	// create node
+	// set data
+	// set next as nullptr
+	//
+	// set headptr and tailptr to node
+	// 
+	//
+	// one node condition
+	// create node
+	// set data
+	// set next as nullptr
+	// 
+	// setnext of tailptr as node
+	// set tailptr = node
+	// 
+	
+	// Create node and set data and setnext as null
+	Node<T>* temp = new Node<T>;
+	temp->setData(ele);
+	temp->setNext(nullptr);
+	
+	if(headptr == tailptr)
+
+	if(isEmpty()) {
+		headptr = temp;
+		tailptr = temp;
+		return true;
+	}
+
+	tailptr->setNext(temp);
+	tailptr = temp;
+
+	return true;
+
 
 }
 

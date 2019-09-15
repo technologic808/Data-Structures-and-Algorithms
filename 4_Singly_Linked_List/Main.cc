@@ -35,7 +35,12 @@ int main(){
 				break;
 			
 			case 2:{
-			       	
+			       		int temp;
+					cout << "\nPlease enter a value: ";
+					cin >> temp;
+					if (l.addAtEnd(temp)) cout << "\n\nSuccess!";
+					else cout << "\n\nFailure!";
+					cout << endl;
 			       	}
 				break;
 			

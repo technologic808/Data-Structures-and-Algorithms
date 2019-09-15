@@ -31,7 +31,7 @@ class List : public Node<T>{
 		bool addAtBegin(T);
 
 		// Adds at End of List
-		void addAtEnd(T);
+		bool addAtEnd(T);
 
 		// Deletes from the Beginning of the list
 		T delFromBegin();
