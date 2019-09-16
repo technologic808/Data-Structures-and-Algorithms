@@ -6,7 +6,11 @@
 template<class T>
 class DLinkedList{
 	private:
-		
+		//head pointer
+		//tail pointer
+
+		Node<T>* headptr;
+		Node<T>* tailptr;
 	public:
 		// doubly linked list will implement
 		//
@@ -21,6 +25,7 @@ class DLinkedList{
 		
 		DLinkedList();
 		~DLinkedList();
+		bool isEmpty();
 		bool addAtBegin(T);
 		bool addAtEnd(T);
 		T delFromBegin();

@@ -15,14 +15,14 @@ int main(){
 		cout << "\n4. Delete from End\n";
 		cout << "\n5. Empty the list\n";
 		cout << "\n6. Display List\n";
-		cout << "\n\n0. EXIT\n";
+		cout << "\n\n0. EXIT\n\n";
 
 		cin >> option;
 
 		switch(option){
 			case 1:{
 				       	int ele;
-				       	cout << "\nPlease enter data:  ";
+				       	cout << "\n\nPlease enter data:  ";
 				       	cin >> ele;
 					if(dll.addAtBegin(ele)) cout << "\nSuccess!\n";
 					else cout << "\nFailure\n";
