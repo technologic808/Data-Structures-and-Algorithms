@@ -56,11 +56,23 @@ int main(){
 				break;
 			
 			case 5:{
-			       	
+				       	int pos;
+					int ele;
+			       		cout << "\nPosition at which element needs to be added :  ";
+					cin >> pos;
+					cout << "\nElement to be added: ";
+					cin >> ele;
+					if(l.insertAt(pos, ele)) cout << "\nSuccess!\n";
+					else cout << "\nFailure!\n";
 			       	}
 				break;
 			
 			case 6:{
+				       	int pos;
+			       		cout << "\nSerial number of element to be deleted :  ";
+					cin >> pos;
+					cout << "\nDeleted element is " << l.deleteAt(pos) << endl;
+					
 			       	
 			       	}
 				break;

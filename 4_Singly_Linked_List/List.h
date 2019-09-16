@@ -50,6 +50,9 @@ class List : public Node<T>{
 
 		// Insert at position
 		bool insertAt(int, T);
+
+		// Delete at position
+		T deleteAt(int);
 };
 
 //template class List<int>;

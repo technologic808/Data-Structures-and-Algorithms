@@ -278,8 +278,62 @@ void List<T>::empty(){
 
 // Inserts element at the specified position
 template <class T>
-void insertAt(){
+bool List<T>::insertAt(int pos, T ele){
 	
+	if(pos == 1){ 
+		addAtBegin(ele);
+		return true;
+	}
+
+	if(pos == count) {
+		addAtEnd(ele);
+		return true;
+	}
+
+	Node<T>* temp = new Node<T>;
+	temp->setData(ele);
+	Node<T>* trav = headptr;
+
+	for (int i = 1; i < pos - 1; i++){
+		trav = trav -> getNext();
+	}
+	Node<T>* p = trav;
+	trav = trav -> getNext();
+	Node<T>* q = trav;
+
+	p->setNext(temp);
+	temp->setNext(q);
+
+	return true;
+}
+
+// Deletes element at the specified position
+template<class T>
+T List<T>::deleteAt(int pos){
+	if(pos == 1){
+		return delFromBegin();
+	}
+
+	if(pos == count){
+		return delFromEnd();
+	}
+
+	Node<T>* trav = headptr;
+
+	for(int i = 1; i < pos - 1; i++){
+		trav = trav -> getNext();
+	}
+
+	Node<T>* p = trav;
+	trav = trav->getNext();
+	Node<T>* q = trav->getNext();
+	
+
+	p->setNext(q);
+	
+	T ele = trav->getData();
+	delete trav;
+	return ele;
 }
 
 template class List<int>;
