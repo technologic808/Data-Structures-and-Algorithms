@@ -59,6 +59,7 @@ bool DLinkedList<T>::addAtBegin(T ele){
 	}
 	else{
 		temp->setNext(headptr);
+		headptr -> setPrev(temp);
 		headptr = temp;
 		success = true;
 	}
@@ -154,12 +155,59 @@ T DLinkedList<T>::delFromBegin(){
 
 template<class T>
 T DLinkedList<T>::delFromEnd(){
+	// delete from end 
+	//
+	// for empty
+	// 	throw exception
+	//
+	// for single node 
+	// 	create temp node as tailnode
+	// 	get data
+	//	headptr = nullptr
+	//	tailptr = nullptr
+	//	delete temp
+	// 	
+	// for multi node
+	// 	create temp node as tailnode
+	// 	get data
+	// 	set tail as tail -> getPrev
+	// 	set next of tail as nullptr
+	// 	delete temp
+	//
+	// return data
+	// 	
+	
+	// Empty node condition
+	if(isEmpty()) throw runtime_error("No data in memory");
+	
+	Node<T>* temp = tailptr;
+	T ele = tailptr->getData();
 
+	// Single node condition
+	if(headptr == tailptr){
+		headptr = nullptr;
+		tailptr = nullptr;
+		delete temp;
+		return ele;
+	}
+
+	// Multi node condition
+	tailptr = tailptr -> getPrev();
+	tailptr -> setNext(nullptr);
+	temp ->setPrev(nullptr);
+	delete temp;
+	return ele;
 }
 
 template<class T>
 bool DLinkedList<T>::empty(){
-
+	Node<T>* temp = headptr;
+	while (temp != nullptr){
+		headptr = headptr -> getNext();
+		delete temp;
+		temp = headptr;
+	}
+	return true;
 }
 
 template<class T>
