@@ -70,11 +70,86 @@ bool DLinkedList<T>::addAtEnd(T ele){
 	// To add at end of a linked list
 	//
 	// if empty
+	// 	create node 
+	// 	set data
+	// 	set next as nullptr
+	// 	set prev as nullptr
+	// 	set tail = node
+	// 	set head = node
+	//
+	// if one node
+	// 	create node
+	// 	set data
+	// 	set next as nullptr
+	// 	set prev as tailptr
+	// 	set next of tailptr as node
+	// 	set tail = node
+	
+	bool success = false;
+
+	Node<T>* temp = new Node<T>;
+	temp->setData(ele);
+	temp->setNext(nullptr);
+
+	// empty condition
+	if(headptr == nullptr && tailptr == nullptr){
+		tailptr = temp;
+		headptr = temp;
+		success = true;
+	}
+
+	else {
+		temp -> setPrev(tailptr);
+		tailptr -> setNext(temp);
+		tailptr = temp;
+		success = false;
+	}
+	return success;
 }
 
 template<class T>
 T DLinkedList<T>::delFromBegin(){
+	// Delete from begin
+	// 
+	// for empty
+	// throw exception
+	//
+	// for one node
+	// create temp pointer to node
+	// get data
+	// set headptr and tailptr as null
+	// delete temp
+	//
+	// for multi node
+	// create temp pointer to headptr
+	// get data
+	// set headptr as headptr-> getNext();
+	// set prev of headptr to nullptr
+	// delete temp
+	//
+	// return data
+	
+	// Check for empty 
+	if(headptr == nullptr && tailptr == nullptr) throw runtime_error("No data in memory!");
 
+	Node<T>* temp = headptr;
+	T ele = temp -> getData();
+
+	// Check for single node condition
+	if (headptr == tailptr){
+		headptr = nullptr;
+		tailptr = nullptr;
+		delete temp;
+	}
+
+	// multi node condition
+	else {
+		headptr = headptr -> getNext();
+		headptr -> setPrev(nullptr);
+		delete temp;
+	}
+
+	return ele;
 }
 
 template<class T>
