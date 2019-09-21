@@ -200,6 +200,20 @@ T DLinkedList<T>::delFromEnd(){
 }
 
 template<class T>
+bool DLinkedList<T>::addAt(int pos, T ele){
+	// add at position in a linked list
+	//
+	// go to element before position
+	// select elements to put the new element between
+	// set all the pointers
+}
+
+template<class T>
+T DlinkedList<T>::delFrom(int pos){
+	// 
+}
+
+template<class T>
 bool DLinkedList<T>::empty(){
 	Node<T>* temp = headptr;
 	while (temp != nullptr){

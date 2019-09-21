@@ -30,6 +30,8 @@ class DLinkedList{
 		bool addAtEnd(T);
 		T delFromBegin();
 		T delFromEnd();
+		bool addAt(int, T);
+		T delFrom(int);
 		bool empty();
 		void display();
 		
