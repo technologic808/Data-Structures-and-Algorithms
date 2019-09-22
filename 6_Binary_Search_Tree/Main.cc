@@ -13,4 +13,7 @@ int main()
     tree.insert(88);
 
     BST<int>::inOrder(tree.getRoot());
+    cout << endl
+         << BST<int>::heightOfTree(tree.getRoot())
+         << endl;
 }

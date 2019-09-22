@@ -103,6 +103,45 @@ void BST<T>::postOrder(Node<T> *t)
 }
 
 template <class T>
-void BST<T>::deleteTree(Node<T> *t) {}
+void BST<T>::deleteTree(Node<T> *t)
+{
+    Node<T> *trav = t;
+    if (trav == nullptr)
+    {
+        return;
+    }
+    deleteTree(trav->getLeft());
+    deleteTree(trav->getRight());
+}
+
+template <class T>
+int BST<T>::heightOfTree(Node<T> *t)
+{
+    // To calculate height of tree
+    // initialize l and r as 0
+    // exit condition if t is null return 0
+    // calculate height of left
+    // calculate height of right
+    // calculate height
+    int l = 0;
+    int r = 0;
+
+    if (t == nullptr)
+    {
+        return 0;
+    }
+
+    l = heightOfTree(t->getLeft());
+    r = heightOfTree(t->getLeft());
+
+    if (l >= r)
+    {
+        return l + 1;
+    }
+    else
+    {
+        return r + 1;
+    }
+}
 
 template class BST<int>;
