@@ -144,4 +144,76 @@ int BST<T>::heightOfTree(Node<T> *t)
     }
 }
 
+template <class T>
+T BST<T>::findMin(Node<T> *t)
+{
+    // to find the minimum node in the tree
+    /*
+    create node pointer t
+    trav == t
+    if left of root is null
+        return left->getData
+    findMin(left of trav)
+    */
+    if (t == nullptr)
+        throw runtime_error("Nothing to return");
+
+    Node<T> *trav = t;
+    if (t->getLeft() == nullptr)
+    {
+        return t->getData();
+    }
+    else
+    {
+        return findMin(t->getLeft());
+    }
+}
+
+template <class T>
+T BST<T>::findMax(Node<T> *t)
+{
+    // to find the minimum node in the tree
+    /*
+    create node pointer t
+    trav == t
+    if left of root is null
+        return left->getData
+    findMin(left of trav)
+    */
+    if (t == nullptr)
+        throw runtime_error("Nothing to return");
+
+    Node<T> *trav = t;
+    if (t->getRight() == nullptr)
+    {
+        return t->getData();
+    }
+    else
+    {
+        return findMin(t->getRight());
+    }
+}
+
+template <class T>
+bool BST<T>::search(T ele)
+{
+    Node<T> *trav = root;
+
+    while (trav != nullptr)
+    {
+        if (ele == trav->getData())
+        {
+            return true;
+        }
+        else if (ele < trav->getData())
+        {
+            trav = trav->getLeft();
+        }
+        else
+        {
+            trav = trav->getRight();
+        }
+    }
+}
+
 template class BST<int>;
